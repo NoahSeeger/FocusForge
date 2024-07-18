@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FocusForge</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <h1>FocusForge</h1>
+    <div class="switch-container">
+      <label class="switch">
+        <input type="checkbox" id="blockingToggle" />
+        <span class="slider round"></span>
+      </label>
+      <span id="toggleStatus">Blocking Off</span>
+    </div>
+    <input
+      type="text"
+      id="siteInput"
+      placeholder="Enter site to monitor (e.g., example.com)"
+    />
+    <button id="addSite">Add Site</button>
+    <ul id="blockedSitesList"></ul>
+    <button id="clearAllSites">Clear All Sites</button>
+    <input
+      type="text"
+      id="productiveInput"
+      placeholder="Enter productive URL"
+    />
+    <button id="setProductiveUrl">Set Productive URL</button>
+    <div id="message"></div>
+    <script src="popup.js"></script>
+  </body>
+</html>

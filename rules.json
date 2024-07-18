@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": { "url": "https://example.com/productive-page" }
+    },
+    "condition": { "urlFilter": "youtube.com", "resourceTypes": ["main_frame"] }
+  }
+]
