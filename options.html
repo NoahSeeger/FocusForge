@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FocusForge Settings</title>
+    <link rel="stylesheet" type="text/css" href="options.css" />
+  </head>
+  <body>
+    <h1>FocusForge Settings</h1>
+    <section class="layout">
+      <div class="layout-1">
+        <label for="siteInput">Add to Blocklist</label>
+        <input type="text" id="siteInput" placeholder="e.g. example.com" />
+        <button id="addSite">Add Site</button>
+        <span class="w-divider"></span>
+        <ul id="blockedSitesList"></ul>
+      </div>
+      <div class="layout-2">
+        <button id="clearAllSites">Clear All Sites</button>
+        <button id="exportSites">Export Blocked Sites</button>
+        <button id="importSites">Import Blocked Sites</button>
+        <input type="file" id="importFile" style="display: none" />
+
+        <button id="saveSettings">Save Settings</button>
+      </div>
+    </section>
+    <section class="layout">
+      <div class="setting-group">
+        <h2>Motivational Quotes</h2>
+        <textarea
+          id="motivationalQuotes"
+          rows="10"
+          placeholder="Enter motivational quotes here. One quote per line."
+        ></textarea>
+      </div>
+      <div class="setting-group">
+        <h2>Motivational Video (youtube)</h2>
+        <textarea
+          id="motivationalVideos"
+          rows="10"
+          placeholder="Enter motivational videos here. One video per line."
+        ></textarea>
+      </div>
+    </section>
+    <div id="message"></div>
+
+    <script src="options.js"></script>
+  </body>
+</html>

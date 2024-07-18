@@ -1,80 +1,164 @@
+:root {
+  --primary-color: #4a90e2;
+  --secondary-color: #f5f7fa;
+  --text-color: #333;
+  --border-color: #e1e4e8;
+  --delete-color: #e74c3c;
+  --success-color: #2ecc71;
+  --error-color: #e74c3c;
+}
+
 body {
-  width: 300px;
-  padding: 10px;
-  font-family: Arial, sans-serif;
+  width: 320px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 16px;
+  background-color: #fff;
+  color: var(--text-color);
 }
 
-input,
-button {
-  margin: 5px 0;
-  width: 100%;
-  padding: 5px;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  margin: 5px 0;
-  padding: 5px;
-  background-color: #f0f0f0;
-  border-radius: 3px;
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 16px;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 0;
+  color: var(--primary-color);
+}
+
+input[type="text"],
+button {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #3a7bd5;
+}
+
+#blockedSitesList {
+  max-height: 200px;
+  overflow-y: auto;
+  margin: 16px 0;
+  padding: 0;
+  list-style-type: none;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+li:last-child {
+  border-bottom: none;
 }
 
 .delete-button {
-  background-color: #ff4d4d;
+  background-color: var(--delete-color);
   color: white;
-  width: 20%;
   border: none;
-  padding: 5px 10px;
-  border-radius: 3px;
+  padding: 6px 10px;
+  border-radius: 4px;
   cursor: pointer;
+  font-size: 12px;
+}
+
+.delete-button:hover {
+  background-color: #c0392b;
 }
 
 #clearAllSites {
-  background-color: #ff4d4d;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 3px;
-  cursor: pointer;
-  margin-top: 10px;
+  background-color: var(--delete-color);
 }
 
+#clearAllSites:hover {
+  background-color: #c0392b;
+}
+
+/* Fügen Sie dies zu Ihrem bestehenden CSS hinzu oder ersetzen Sie den #message-Abschnitt */
+
 #message {
-  margin-top: 10px;
-  padding: 5px;
-  border-radius: 3px;
-  text-align: center;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 1000;
+  white-space: nowrap;
+}
+
+#message.show {
+  opacity: 1;
 }
 
 #message.success {
-  background-color: #dff0d8;
-  color: #3c763d;
+  background-color: #4caf50;
+  color: white;
 }
 
 #message.error {
-  background-color: #f2dede;
-  color: #a94442;
+  background-color: #f44336;
+  color: white;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translate(-50%, 100%);
+  }
+  to {
+    transform: translate(-50%, 0);
+  }
+}
+
+#message {
+  /* ... andere Eigenschaften ... */
+  animation: slideInUp 0.3s ease-out;
 }
 
 .switch-container {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin: 16px 0;
 }
 
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
-  margin-right: 10px;
+  width: 52px;
+  height: 28px;
+  margin-right: 12px;
 }
 
 .switch input {
@@ -92,74 +176,53 @@ li {
   bottom: 0;
   background-color: #ccc;
   transition: 0.4s;
+  border-radius: 28px;
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
+  height: 20px;
+  width: 20px;
   left: 4px;
   bottom: 4px;
   background-color: white;
   transition: 0.4s;
+  border-radius: 50%;
 }
 
 input:checked + .slider {
-  background-color: red;
+  background-color: var(--primary-color);
 }
 
 input:checked + .slider:before {
-  transform: translateX(26px);
-}
-
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
+  transform: translateX(24px);
 }
 
 .footer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
 }
 
 .by {
-  margin-top: 5px;
-  color: gray;
+  color: #888;
   font-size: 12px;
-}
-
-.icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 8px;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-}
-
-#blockedSitesList {
-  height: 200px;
-  overflow: scroll;
 }
 
 #exportSites,
 #importSites {
-  margin-top: 10px;
-  padding: 5px 10px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  padding: 8px 12px;
+  font-size: 12px;
 }
 
 #exportSites:hover,
 #importSites:hover {
-  background-color: #45a049;
+  background-color: #e9ecef;
 }
