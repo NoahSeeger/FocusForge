@@ -142,3 +142,24 @@ input:checked + .slider:before {
   display: flex;
   justify-content: space-between;
 }
+
+#blockedSitesList {
+  height: 200px;
+  overflow: scroll;
+}
+
+#exportSites,
+#importSites {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#exportSites:hover,
+#importSites:hover {
+  background-color: #45a049;
+}
