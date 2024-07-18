@@ -2,7 +2,9 @@
 
 FocusForge is a Chrome extension designed to boost productivity by helping users stay focused and avoid distracting websites.
 
-![Screenshot 2024-07-18 170325](https://github.com/user-attachments/assets/1a321e11-dd59-41b1-a28e-665ffd1eec1f)
+![Screenshot 2024-07-18 215817](https://github.com/user-attachments/assets/3209b39f-a43f-4241-b341-76b139caeb2b)
+![Screenshot 2024-07-18 215337](https://github.com/user-attachments/assets/bb2cceca-74af-49d9-a748-69e4a6dd50c8)
+
 
 ## Features
 
