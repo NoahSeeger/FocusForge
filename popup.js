@@ -1,12 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   loadBlockedSites();
-  loadProductiveUrl();
   loadBlockingState();
 
   document.getElementById("addSite").addEventListener("click", addSite);
-  document
-    .getElementById("setProductiveUrl")
-    .addEventListener("click", setProductiveUrl);
   document
     .getElementById("clearAllSites")
     .addEventListener("click", clearAllSites);
@@ -43,6 +39,10 @@ function toggleBlocking() {
       blockingEnabled ? "Blocking enabled" : "Blocking disabled",
       "success"
     );
+    chrome.runtime.sendMessage({
+      action: "updateBlockingState",
+      state: blockingEnabled,
+    });
   });
 }
 
@@ -102,31 +102,6 @@ function clearAllSites() {
     loadBlockedSites();
   });
   showMessage("Cleared all sites", "success");
-}
-
-function setProductiveUrl() {
-  let productiveUrl = document.getElementById("productiveInput").value;
-  chrome.storage.sync.set({ productiveUrl: productiveUrl });
-}
-
-function loadProductiveUrl() {
-  chrome.storage.sync.get("productiveUrl", function (result) {
-    document.getElementById("productiveInput").value =
-      result.productiveUrl || "";
-  });
-}
-
-function setProductiveUrl() {
-  let productiveUrl = document.getElementById("productiveInput").value;
-  chrome.storage.sync.set({ productiveUrl: productiveUrl }, function () {
-    if (chrome.runtime.lastError) {
-      showMessage("Error: " + chrome.runtime.lastError.message, "error");
-    } else if (productiveUrl === "") {
-      showMessage("Please enter a valid URL", "error");
-    } else {
-      showMessage("Productive URL updated successfully!", "success");
-    }
-  });
 }
 
 function showMessage(text, type) {

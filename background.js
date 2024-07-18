@@ -13,12 +13,12 @@ chrome.runtime.onInstalled.addListener(() => {
 });
 
 chrome.webNavigation.onBeforeNavigate.addListener((details) => {
-  if (details.frameId !== 0) return; // Only handle main frame navigation
+  if (details.frameId !== 0) return; // Nur Hauptframe-Navigation behandeln
 
   chrome.storage.sync.get(
     ["blockingEnabled", "blockedSites"],
     function (result) {
-      if (!result.blockingEnabled) return; // If blocking is disabled, allow navigation
+      if (!result.blockingEnabled) return; // Wenn Blockierung deaktiviert ist, Navigation erlauben
 
       const url = new URL(details.url);
       const blockedSites = result.blockedSites || [];
@@ -30,4 +30,11 @@ chrome.webNavigation.onBeforeNavigate.addListener((details) => {
       }
     }
   );
+});
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.action === "updateBlockingState") {
+    // Aktualisiere den Blockierungszustand
+    chrome.storage.sync.set({ blockingEnabled: message.state });
+  }
 });
