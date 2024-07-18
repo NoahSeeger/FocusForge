@@ -120,3 +120,25 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.by {
+  margin-top: 5px;
+  color: gray;
+  font-size: 12px;
+}
+
+.icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
